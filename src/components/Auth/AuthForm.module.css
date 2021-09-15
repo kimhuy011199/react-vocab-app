@@ -1,5 +1,5 @@
 .container {
-  max-width: 37rem;
+  max-width: 40rem;
   margin: 0 auto;
   margin-top: 4rem;
   display: flex;
@@ -14,7 +14,7 @@
 }
 
 .form {
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 2rem;
   border-radius: 1.2rem;
   background-color: var(--gray-50);
   border: var(--border-gray-100);
@@ -62,7 +62,8 @@
   cursor: not-allowed;
 }
 
-.alt {
+.alt,
+.error {
   padding: 1.4rem;
   border-radius: 1rem;
   border: var(--border-gray-100);
@@ -78,4 +79,15 @@
 .alt a:hover,
 .alt a:active {
   text-decoration: underline;
+}
+
+.invalid {
+  color: var(--red-500);
+  font-size: 1.3rem;
+  text-align: right;
+}
+
+.error {
+  border: var(--border-red-500);
+  color: var(--red-500);
 }
