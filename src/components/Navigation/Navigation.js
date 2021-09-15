@@ -1,35 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Navigation.module.css";
 import logo from "../../assets/logo.svg";
 import { useLocation } from "react-router-dom";
+import AuthContext from "../../store/authContext";
 
 const Header = () => {
   const location = useLocation();
+  const authContext = useContext(AuthContext);
 
   return (
     <div className={classes.container}>
       <div className={classes.header}>
         <div className={classes.logo}>
-          <img src={logo} alt="VOCAB Logo" />
+          <Link to="/">
+            <img src={logo} alt="VOCAB Logo" />
+          </Link>
         </div>
         <nav className={classes.nav}>
-          <ul>
-            {location.pathname !== "/login" && (
+          {!authContext.isLoggedIn && (
+            <ul>
+              {location.pathname !== "/login" && (
+                <li>
+                  <Link className={classes.full} to="/login">
+                    ĐĂNG NHẬP
+                  </Link>
+                </li>
+              )}
+              {location.pathname !== "/register" && (
+                <li>
+                  <Link className={classes.cyan} to="/register">
+                    ĐĂNG KÝ
+                  </Link>
+                </li>
+              )}
+            </ul>
+          )}
+          {authContext.isLoggedIn && (
+            <ul>
               <li>
-                <Link className={classes.full} to="/login">
-                  ĐĂNG NHẬP
+                <Link className={classes.full} to="/profile">
+                  TRANG CÁ NHÂN
                 </Link>
               </li>
-            )}
-            {location.pathname !== "/register" && (
-              <li>
-                <Link className={classes.cyan} to="/register">
-                  ĐĂNG KÝ
-                </Link>
-              </li>
-            )}
-          </ul>
+            </ul>
+          )}
         </nav>
       </div>
     </div>
