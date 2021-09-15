@@ -1,0 +1,33 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--white);
+  padding: 3.5rem 2.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+}
+
+.card div {
+  width: 4rem;
+  color: var(--blue-500);
+}
+
+.card h4 {
+  font-size: 1.8rem;
+}
+
+.card p {
+  font-size: 1.4rem;
+  color: var(--text-color-gray);
+}
