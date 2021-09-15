@@ -4,7 +4,7 @@
   --text-color: #1f2937;
   --text-color-gray: #6b7280;
   --white: #fff;
-  --gray-50: #f9fafb;
+  --gray-50: #fafbfc;
   --cyan-500: #4ccce9;
   --cyan-600: #33b6d3;
   --blue-100: #eef5ff;
@@ -16,6 +16,8 @@
   --border-gray-100: 1px solid #f3f4f6;
   --border-blue-500: 1px solid #3b82f6;
   --border-blue-600: 1px solid #2563eb;
+
+  --box-shadow: 1rem 2rem 4rem #1f293710;
 
   --page-width: 96rem;
 }
@@ -37,12 +39,13 @@ body {
   color: var(--text-color);
   font-weight: 300;
   line-height: 1.6;
-  background-color: var(--blue-100);
 }
 
 input,
 button {
   font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
 }
 
 button {
