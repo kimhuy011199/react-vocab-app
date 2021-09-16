@@ -1,0 +1,45 @@
+.email {
+  cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  transition: all 0.3s;
+  color: var(--white);
+  background-color: var(--blue-500);
+}
+
+.container {
+  position: relative;
+}
+
+.container ul li {
+  width: 100%;
+  text-align: right;
+}
+
+.container ul li a:link,
+.container ul li a:visited {
+  font-size: 1.4rem;
+  display: block;
+  padding: 0.8rem 1.2rem;
+  text-align: right;
+  color: var(--text-color);
+  border-radius: 0.8rem;
+  transition: all 0.2s;
+}
+
+.container ul li a:hover,
+.container ul li a:active {
+  color: var(--cyan-600);
+}
+
+.dropdown {
+  z-index: 30;
+  position: absolute;
+  border-radius: 0.8rem;
+  width: 100%;
+  top: 0rem;
+  padding-top: 6rem;
+  cursor: pointer;
+}

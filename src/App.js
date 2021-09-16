@@ -4,7 +4,6 @@ import Layout from "./components/Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
 import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
-import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import AuthContext from "./store/authContext";
 import Learning from "./pages/Learning/Learning";
@@ -28,10 +27,6 @@ function App() {
         <Route path="/login">
           {!authCtx.isLoggedIn && <Login />}
           {authCtx.isLoggedIn && <Redirect to="/" />}
-        </Route>
-        <Route path="/profile">
-          {!authCtx.isLoggedIn && <Redirect to="/" />}
-          {authCtx.isLoggedIn && <Profile />}
         </Route>
         <Route path="/learning/:slug">
           {!authCtx.isLoggedIn && <Redirect to="/" />}

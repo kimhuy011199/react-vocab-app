@@ -4,6 +4,7 @@ import classes from "./Navigation.module.css";
 import logo from "../../assets/logo.svg";
 import { useLocation } from "react-router-dom";
 import AuthContext from "../../store/authContext";
+import Profile from "./Profile";
 
 const Header = () => {
   const location = useLocation();
@@ -36,15 +37,7 @@ const Header = () => {
               )}
             </ul>
           )}
-          {authContext.isLoggedIn && (
-            <ul>
-              <li>
-                <Link className={classes.full} to="/profile">
-                  TRANG CÁ NHÂN
-                </Link>
-              </li>
-            </ul>
-          )}
+          {authContext.isLoggedIn && <Profile email={authContext.email} />}
         </nav>
       </div>
     </div>
