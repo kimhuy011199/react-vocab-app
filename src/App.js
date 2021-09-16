@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import AuthContext from "./store/authContext";
 import Learning from "./pages/Learning/Learning";
+import Examination from "./pages/Examination/Examination";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -34,6 +35,10 @@ function App() {
         <Route path="/learning/:slug">
           {!authCtx.isLoggedIn && <Redirect to="/" />}
           {authCtx.isLoggedIn && <Learning />}
+        </Route>
+        <Route path="/examination/:slug">
+          {!authCtx.isLoggedIn && <Redirect to="/" />}
+          {authCtx.isLoggedIn && <Examination />}
         </Route>
       </Switch>
     </Layout>

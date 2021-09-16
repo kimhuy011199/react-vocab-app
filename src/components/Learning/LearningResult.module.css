@@ -1,5 +1,5 @@
 .container {
-  color: #fff;
+  color: var(--white);
   padding: 3rem;
   font-size: 1.8rem;
   display: flex;

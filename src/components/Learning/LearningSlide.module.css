@@ -38,7 +38,7 @@
   width: 2rem;
   border-radius: 10rem;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;

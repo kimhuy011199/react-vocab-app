@@ -1,0 +1,19 @@
+.container {
+  color: var(--white);
+  padding: 2rem 3rem;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.answer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10rem;
+}
+
+.answer ul li {
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+}
