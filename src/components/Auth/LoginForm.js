@@ -43,7 +43,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (status === "completed" && !error) {
-      authContext.login(data.jwt, data.user.email);
+      authContext.login(data.jwt, data.user.email, data.user.id);
       history.replace("/");
     }
   }, [data, status, error, history, authContext]);

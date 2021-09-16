@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import CategoryList from "../../components/Category/CategoryList";
 import Loading from "../../components/UI/Loading/Loading";
 import Error from "../../components/UI/Error/Error";
+import Heading from "../../components/UI/Heading/Heading";
 
 const Categories = () => {
   const { data, error, status, requestFunction } = useFetch(
@@ -23,7 +24,12 @@ const Categories = () => {
     return <Error />;
   }
 
-  return <CategoryList categoryList={data} />;
+  return (
+    <>
+      <Heading heading="Tất cả các chủ đề" />
+      <CategoryList categoryList={data} />
+    </>
+  );
 };
 
 export default Categories;

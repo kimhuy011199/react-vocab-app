@@ -1,0 +1,7 @@
+.heading {
+  margin-top: 2.5rem;
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--border-gray-100);
+  color: var(--blue-500);
+}

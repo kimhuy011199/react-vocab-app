@@ -48,3 +48,7 @@ export const getAllCategories = async () => {
 export const getSingleCategory = async (slug) => {
   return await fetchAPI(`/categories?slug=${slug}`);
 };
+
+export const getMyLearningByID = async (id) => {
+  return await fetchAPI(`/learnings?userID=${id}`);
+};

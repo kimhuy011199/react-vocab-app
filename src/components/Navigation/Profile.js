@@ -34,7 +34,7 @@ const Profile = () => {
           </ul>
           <ul>
             <li>
-              <Link to="/">Chủ đề đã học</Link>
+              <Link to="/mylearning">Chủ đề đang học</Link>
             </li>
           </ul>
           <ul>
