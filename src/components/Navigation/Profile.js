@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Profile.module.css";
+import AuthContext from "../../store/authContext";
+import { useHistory } from "react-router-dom";
 
-const Profile = (props) => {
+const Profile = () => {
+  const authContext = useContext(AuthContext);
+  const history = useHistory();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
+  };
+
+  const logoutHandler = () => {
+    authContext.logout();
+    history.push("/login");
   };
 
   return (
@@ -15,7 +24,7 @@ const Profile = (props) => {
       onMouseEnter={toggleDropdown}
       onMouseLeave={toggleDropdown}
     >
-      <div className={classes.email}>Xin chào, {props.email}</div>
+      <div className={classes.email}>Xin chào, {authContext.email}</div>
       {isDropdownOpen && (
         <div className={classes.dropdown}>
           <ul>
@@ -30,7 +39,7 @@ const Profile = (props) => {
           </ul>
           <ul>
             <li>
-              <Link to="/">Bài kiểm tra của bạn</Link>
+              <button onClick={logoutHandler}>Đăng xuất</button>
             </li>
           </ul>
         </div>

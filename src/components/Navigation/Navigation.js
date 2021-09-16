@@ -37,7 +37,7 @@ const Header = () => {
               )}
             </ul>
           )}
-          {authContext.isLoggedIn && <Profile email={authContext.email} />}
+          {authContext.isLoggedIn && <Profile />}
         </nav>
       </div>
     </div>

@@ -15,22 +15,24 @@
 
 .container ul li {
   width: 100%;
-  text-align: right;
 }
 
 .container ul li a:link,
-.container ul li a:visited {
+.container ul li a:visited,
+.container ul li button {
   font-size: 1.4rem;
   display: block;
   padding: 0.8rem 1.2rem;
   text-align: right;
   color: var(--text-color);
   border-radius: 0.8rem;
+  width: 100%;
   transition: all 0.2s;
 }
 
 .container ul li a:hover,
-.container ul li a:active {
+.container ul li a:active,
+.container ul li button:hover {
   color: var(--cyan-600);
 }
 
