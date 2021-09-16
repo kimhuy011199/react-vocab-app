@@ -1,25 +1,34 @@
-import { Route, Switch } from "react-router-dom";
+import { useContext } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
+import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
+import AuthContext from "./store/authContext";
 
 function App() {
+  const authCtx = useContext(AuthContext);
+
   return (
     <Layout>
       <Switch>
         <Route path="/" exact>
-          <Homepage />
+          {!authCtx.isLoggedIn && <Homepage />}
+          {authCtx.isLoggedIn && <Categories />}
         </Route>
         <Route path="/register">
-          <Register />
+          {!authCtx.isLoggedIn && <Register />}
+          {authCtx.isLoggedIn && <Redirect to="/" />}
         </Route>
         <Route path="/login">
-          <Login />
+          {!authCtx.isLoggedIn && <Login />}
+          {authCtx.isLoggedIn && <Redirect to="/" />}
         </Route>
         <Route path="/profile">
-          <Profile />
+          {!authCtx.isLoggedIn && <Profile />}
+          {authCtx.isLoggedIn && <Redirect to="/" />}
         </Route>
       </Switch>
     </Layout>

@@ -17,7 +17,7 @@ const RegisterForm = () => {
 
   const { error, status, requestFunction } = useFetch(register, false);
 
-  const submitHandler = async (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
 
     // Get user input
@@ -45,7 +45,7 @@ const RegisterForm = () => {
     setPasswordError(null);
 
     // Send request to server
-    await requestFunction({ username, email, password });
+    requestFunction({ username, email, password });
   };
 
   useEffect(() => {

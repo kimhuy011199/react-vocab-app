@@ -17,7 +17,7 @@ const LoginForm = () => {
 
   const { data, error, status, requestFunction } = useFetch(login, false);
 
-  const submitHandler = async (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
 
     // Get user input
@@ -38,7 +38,7 @@ const LoginForm = () => {
     setPasswordError(null);
 
     // Send request to server
-    await requestFunction({ identifier: username, password });
+    requestFunction({ identifier: username, password });
   };
 
   useEffect(() => {
