@@ -9,6 +9,7 @@ import Register from "./pages/Register/Register";
 import AuthContext from "./store/authContext";
 import Learning from "./pages/Learning/Learning";
 import Examination from "./pages/Examination/Examination";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -39,6 +40,9 @@ function App() {
         <Route path="/examination/:slug">
           {!authCtx.isLoggedIn && <Redirect to="/" />}
           {authCtx.isLoggedIn && <Examination />}
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </Layout>
