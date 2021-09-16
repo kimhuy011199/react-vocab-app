@@ -5,6 +5,8 @@
   --text-color-gray: #6b7280;
   --white: #fff;
   --gray-50: #fafbfc;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
   --cyan-500: #4ccce9;
   --cyan-600: #33b6d3;
   --blue-100: #eef5ff;
@@ -14,11 +16,14 @@
   --red-500: #ef4444;
 
   --border-gray-100: 1px solid #f3f4f6;
+  --border-gray-200: 1px solid #e5e7eb;
+  --border-cyan-500: 1px solid #4ccce9;
   --border-blue-500: 1px solid #3b82f6;
   --border-blue-600: 1px solid #2563eb;
   --border-red-500: 1px solid #ef4444;
 
   --box-shadow: 1rem 1rem 4rem #1f293710;
+  --box-shadow-center: 0rem 0rem 10rem #1f293710;
 
   --page-width: 96rem;
 }

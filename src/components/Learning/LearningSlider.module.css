@@ -1,0 +1,61 @@
+.slider {
+  margin: 3.5rem auto;
+  width: 80rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.slide {
+  display: flex;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: var(--box-shadow-center);
+  border-radius: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.next,
+.prev {
+  cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  width: 12rem;
+}
+
+.next {
+  background-color: var(--cyan-500);
+  color: var(--white);
+}
+
+.prev {
+  border: var(--border-cyan-500);
+  background-color: var(--white);
+  color: var(--cyan-500);
+}
+
+.progress {
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.form input {
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  border: var(--border-gray-200);
+  width: 40rem;
+  margin-right: 1rem;
+}
+
+.form input:focus {
+  outline: none;
+  border: var(--border-cyan-500);
+}
