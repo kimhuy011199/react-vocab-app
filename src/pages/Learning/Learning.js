@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import LearningSlider from "../../components/Learning/LearningSlider";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/UI/Loading/Loading";
+import Error from "../../components/UI/Error/Error";
 
 const Learning = () => {
   const { data, error, status, requestFunction } = useFetch(
@@ -23,7 +24,7 @@ const Learning = () => {
   }
 
   if (status === "completed" && error) {
-    return <p>Error</p>;
+    return <Error />;
   }
 
   return (
