@@ -1,0 +1,35 @@
+.container {
+  height: 70vh;
+  position: relative;
+}
+
+.spinner {
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner:after {
+  content: " ";
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.7rem;
+  border-radius: 50%;
+  border: 0.7rem solid var(--blue-500);
+  border-color: var(--blue-500) transparent var(--blue-500) transparent;
+  animation: rotate 1.2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

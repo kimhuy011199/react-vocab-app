@@ -3,6 +3,7 @@ import { getSingleCategory } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import LearningSlider from "../../components/Learning/LearningSlider";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/UI/Loading/Loading";
 
 const Learning = () => {
   const { data, error, status, requestFunction } = useFetch(
@@ -18,7 +19,7 @@ const Learning = () => {
   }, [requestFunction, slug]);
 
   if (status === "pending") {
-    return <p>Loading</p>;
+    return <Loading />;
   }
 
   if (status === "completed" && error) {

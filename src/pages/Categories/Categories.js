@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getAllCategories } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import CategoryList from "../../components/Category/CategoryList";
+import Loading from "../../components/UI/Loading/Loading";
 
 const Categories = () => {
   const { data, error, status, requestFunction } = useFetch(
@@ -14,7 +15,7 @@ const Categories = () => {
   }, [requestFunction]);
 
   if (status === "pending") {
-    return <p>Loading</p>;
+    return <Loading />;
   }
 
   if (status === "completed" && error) {
