@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.name {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.actions a:link,
+.actions a:visited {
+  cursor: pointer;
+  padding: 0.7rem;
+  border-radius: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: all 0.3s;
+  border: var(--border-gray-100);
+  color: var(--blue-500);
+}
+
+.actions a:hover,
+.actions a:active {
+  color: var(--cyan-500);
+}

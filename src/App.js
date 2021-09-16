@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import AuthContext from "./store/authContext";
+import Learning from "./pages/Learning/Learning";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -27,8 +28,12 @@ function App() {
           {authCtx.isLoggedIn && <Redirect to="/" />}
         </Route>
         <Route path="/profile">
-          {!authCtx.isLoggedIn && <Profile />}
-          {authCtx.isLoggedIn && <Redirect to="/" />}
+          {!authCtx.isLoggedIn && <Redirect to="/" />}
+          {authCtx.isLoggedIn && <Profile />}
+        </Route>
+        <Route path="/learning/:slug">
+          {!authCtx.isLoggedIn && <Redirect to="/" />}
+          {authCtx.isLoggedIn && <Learning />}
         </Route>
       </Switch>
     </Layout>
