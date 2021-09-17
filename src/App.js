@@ -14,15 +14,16 @@ import MyVocabs from "./pages/MyVocabs/MyVocabs";
 
 import { useDispatch } from "react-redux";
 import { fetchVocabs } from "./store/vocabs-action";
+import { fetchLearning } from "./store/learning-action";
 
 function App() {
   const authCtx = useContext(AuthContext);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (authCtx.isLoggedIn) {
       dispatch(fetchVocabs(authCtx.id));
+      dispatch(fetchLearning(authCtx.id));
     }
   }, [authCtx.isLoggedIn, authCtx.id, dispatch]);
 
