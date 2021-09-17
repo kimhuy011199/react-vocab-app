@@ -3,7 +3,6 @@ import VocabsList from "../../components/Vocabs/VocabsList";
 import Error from "../../components/UI/Error/Error";
 import LearningError from "../../components/Learning/LearningError";
 import Heading from "../../components/UI/Heading/Heading";
-
 import { useSelector } from "react-redux";
 
 const MyVocabs = () => {

@@ -1,16 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { getSingleCategory } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import LearningSlider from "../../components/Learning/LearningSlider";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/UI/Loading/Loading";
 import Error from "../../components/UI/Error/Error";
+import { useDispatch, useSelector } from "react-redux";
+import { learningActions } from "../../store/learning-slice";
+import { updateLearning } from "../../store/learning-action";
+import AuthContext from "../../store/authContext";
 
 const Learning = () => {
   const { data, error, status, requestFunction } = useFetch(
     getSingleCategory,
     true
   );
+
+  const authContext = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.learning.categories);
 
   const params = useParams();
   const { slug } = params;
@@ -26,6 +34,14 @@ const Learning = () => {
   if (status === "completed" && error) {
     return <Error />;
   }
+
+  dispatch(learningActions.addItem(data[0]));
+  dispatch(
+    updateLearning({
+      userID: authContext.id,
+      categories: categories,
+    })
+  );
 
   return (
     <LearningSlider

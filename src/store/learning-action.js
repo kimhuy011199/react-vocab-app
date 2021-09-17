@@ -1,5 +1,6 @@
 import { learningActions } from "./learning-slice";
 import { getMyLearningByID } from "../api/api";
+import { updateMyLearning } from "../api/api";
 
 export const fetchLearning = (id) => {
   return async (dispatch) => {
@@ -19,6 +20,16 @@ export const fetchLearning = (id) => {
           categories: null,
         })
       );
+    }
+  };
+};
+
+export const updateLearning = (dataObject) => {
+  return async (dispatch) => {
+    try {
+      await updateMyLearning(dataObject);
+    } catch (error) {
+      console.log(error);
     }
   };
 };
