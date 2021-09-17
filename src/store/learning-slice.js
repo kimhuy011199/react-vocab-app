@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { categories: null };
+const initialState = { learningID: null, categories: null };
 
 const learningSlice = createSlice({
   name: "learning",
@@ -8,6 +8,7 @@ const learningSlice = createSlice({
   reducers: {
     replaceLearning(state, action) {
       state.categories = action.payload.categories;
+      state.learningID = action.payload.learningID;
     },
     addItem(state, action) {
       const newItem = action.payload;
@@ -16,7 +17,6 @@ const learningSlice = createSlice({
       );
       if (!existingItem) {
         state.categories.push(newItem);
-        console.log(state.categories);
       }
     },
   },

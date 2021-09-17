@@ -19,6 +19,7 @@ const Learning = () => {
   const authContext = useContext(AuthContext);
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.learning.categories);
+  const learningID = useSelector((state) => state.learning.learningID);
 
   const params = useParams();
   const { slug } = params;
@@ -35,13 +36,18 @@ const Learning = () => {
     return <Error />;
   }
 
-  dispatch(learningActions.addItem(data[0]));
-  dispatch(
-    updateLearning({
-      userID: authContext.id,
-      categories: categories,
-    })
-  );
+  if (!categories.some((item) => item.id === data[0].id)) {
+    dispatch(learningActions.addItem(data[0]));
+    dispatch(
+      updateLearning(
+        {
+          userID: authContext.id,
+          categories: categories,
+        },
+        learningID
+      )
+    );
+  }
 
   return (
     <LearningSlider

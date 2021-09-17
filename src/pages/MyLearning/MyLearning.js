@@ -21,8 +21,6 @@ const MyLearning = () => {
     return <LearningError content={content} />;
   }
 
-  console.log(categories);
-
   return (
     <>
       <Heading heading="Chủ đề bạn đang học" />

@@ -65,10 +65,10 @@ export const createMyVocabs = async (dataObject) => {
   return await fetchAPI(`/vocabs`, "POST", dataObject);
 };
 
-export const updateMyLearning = async (dataObject) => {
-  return await fetchAPI(`/learnings/${dataObject.userID}`, "PUT", dataObject);
+export const updateMyLearning = async (dataObject, learningID) => {
+  return await fetchAPI(`/learnings/${learningID}`, "PUT", dataObject);
 };
 
-export const updateMyVocabs = async (dataObject) => {
-  return await fetchAPI(`/vocabs/${dataObject.userID}`, "PUT", dataObject);
+export const updateMyVocabs = async (dataObject, vocabsID) => {
+  return await fetchAPI(`/vocabs/${vocabsID}`, "PUT", dataObject);
 };

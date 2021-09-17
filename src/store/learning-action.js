@@ -12,22 +12,24 @@ export const fetchLearning = (id) => {
       dispatch(
         learningActions.replaceLearning({
           categories: data[0].categories,
+          learningID: data[0].id,
         })
       );
     } catch (error) {
       dispatch(
         learningActions.replaceLearning({
           categories: null,
+          learningID: null,
         })
       );
     }
   };
 };
 
-export const updateLearning = (dataObject) => {
+export const updateLearning = (dataObject, learningID) => {
   return async (dispatch) => {
     try {
-      await updateMyLearning(dataObject);
+      await updateMyLearning(dataObject, learningID);
     } catch (error) {
       console.log(error);
     }
