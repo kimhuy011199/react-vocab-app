@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
@@ -10,9 +10,21 @@ import Learning from "./pages/Learning/Learning";
 import Examination from "./pages/Examination/Examination";
 import NotFound from "./pages/NotFound/NotFound";
 import MyLearning from "./pages/MyLearning/MyLearning";
+import MyVocabs from "./pages/MyVocabs/MyVocabs";
+
+import { useDispatch } from "react-redux";
+import { fetchVocabs } from "./store/vocabs-action";
 
 function App() {
   const authCtx = useContext(AuthContext);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      dispatch(fetchVocabs(authCtx.id));
+    }
+  }, [authCtx.isLoggedIn, authCtx.id, dispatch]);
 
   return (
     <Layout>
@@ -40,6 +52,10 @@ function App() {
         <Route path="/mylearning">
           {!authCtx.isLoggedIn && <Redirect to="/" />}
           {authCtx.isLoggedIn && <MyLearning />}
+        </Route>
+        <Route path="/myvocabs">
+          {!authCtx.isLoggedIn && <Redirect to="/" />}
+          {authCtx.isLoggedIn && <MyVocabs />}
         </Route>
         <Route path="*">
           <NotFound />

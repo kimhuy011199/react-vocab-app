@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { register } from "../../api/api";
+import { register, createMyLearning, createMyVocabs } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import classes from "./AuthForm.module.css";
 
@@ -15,7 +15,7 @@ const RegisterForm = () => {
   const [emailError, setEmailError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
 
-  const { error, status, requestFunction } = useFetch(register, false);
+  const { data, error, status, requestFunction } = useFetch(register, false);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -50,9 +50,17 @@ const RegisterForm = () => {
 
   useEffect(() => {
     if (status === "completed" && !error) {
+      createMyLearning({
+        userID: data.user.id,
+        categories: [],
+      });
+      createMyVocabs({
+        userID: data.user.id,
+        vocabularies: [],
+      });
       history.replace("/login");
     }
-  }, [status, error, history]);
+  }, [data, status, error, history]);
 
   return (
     <section className={classes.container} onSubmit={submitHandler}>

@@ -29,7 +29,7 @@ const Profile = () => {
         <div className={classes.dropdown}>
           <ul>
             <li>
-              <Link to="/">Từ vựng của bạn</Link>
+              <Link to="/myvocabs">Từ vựng của bạn</Link>
             </li>
           </ul>
           <ul>

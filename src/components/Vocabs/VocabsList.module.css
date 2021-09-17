@@ -1,0 +1,11 @@
+.container {
+  margin-top: 3rem;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr) 6fr 1fr;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}

@@ -52,3 +52,23 @@ export const getSingleCategory = async (slug) => {
 export const getMyLearningByID = async (id) => {
   return await fetchAPI(`/learnings?userID=${id}`);
 };
+
+export const getMyVocabsByID = async (id) => {
+  return await fetchAPI(`/vocabs?userID=${id}`);
+};
+
+export const createMyLearning = async (dataObject) => {
+  return await fetchAPI(`/learnings`, "POST", dataObject);
+};
+
+export const createMyVocabs = async (dataObject) => {
+  return await fetchAPI(`/vocabs`, "POST", dataObject);
+};
+
+export const updateMyLearning = async (dataObject) => {
+  return await fetchAPI(`/learnings/${dataObject.userID}`, "PUT", dataObject);
+};
+
+export const updateMyVocabs = async (dataObject) => {
+  return await fetchAPI(`/vocabs/${dataObject.userID}`, "PUT", dataObject);
+};

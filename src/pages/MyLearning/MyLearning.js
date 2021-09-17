@@ -29,7 +29,7 @@ const MyLearning = () => {
     return <Error />;
   }
 
-  if (status === "completed" && data.length === 0) {
+  if (status === "completed" && data[0].categories.length === 0) {
     const content = {
       message: "Bạn chưa học chủ đề nào!",
       link: "Bắt đầu học ngay",
