@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Modal from "../UI/Modal/Modal";
+import ExaminationResultItem from "./ExaminationResultItem";
 
 import classes from "./ExaminationResult.module.css";
 
@@ -23,7 +24,7 @@ const ExaminationResult = (props) => {
             <h5 className={classes.title}>Các từ đã thuộc:</h5>
             <ul>
               {props.correct.map((item) => (
-                <li key={item}>{item}</li>
+                <ExaminationResultItem key={item.id} item={item} />
               ))}
             </ul>
           </div>
@@ -31,7 +32,7 @@ const ExaminationResult = (props) => {
             <h5 className={classes.title}>Các từ chưa thuộc:</h5>
             <ul>
               {props.incorrect.map((item) => (
-                <li key={item}>{item}</li>
+                <ExaminationResultItem key={item.id} item={item} />
               ))}
             </ul>
           </div>

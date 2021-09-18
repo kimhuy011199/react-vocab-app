@@ -17,6 +17,7 @@ const ExaminationSlider = (props) => {
   const [incorrect, setIncorrect] = useState([]);
   const [questions, setQuestions] = useState([]);
 
+  // Random questions order
   useEffect(() => {
     setQuestions(shuffle(props.data));
   }, [props.data]);
@@ -31,9 +32,9 @@ const ExaminationSlider = (props) => {
 
     // Handle correct and incorrect answer
     if (questions[currentSlide].word === input) {
-      setCorrect((prev) => [...prev, input]);
+      setCorrect((prev) => [...prev, questions[currentSlide]]);
     } else {
-      setIncorrect((prev) => [...prev, questions[currentSlide].word]);
+      setIncorrect((prev) => [...prev, questions[currentSlide]]);
     }
 
     if (currentSlide === questions.length - 1) {

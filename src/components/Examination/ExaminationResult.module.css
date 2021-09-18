@@ -12,8 +12,3 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10rem;
 }
-
-.answer ul li {
-  margin-top: 0.5rem;
-  font-size: 1.6rem;
-}
