@@ -24,6 +24,10 @@ const vocabsSlide = createSlice({
         (item) => item.id !== action.payload
       );
     },
+    clear(state, action) {
+      state.vocabularies = null;
+      state.vocabsID = null;
+    },
   },
 });
 

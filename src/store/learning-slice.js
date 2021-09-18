@@ -19,6 +19,10 @@ const learningSlice = createSlice({
         state.categories.push(newItem);
       }
     },
+    clear(state, action) {
+      state.categories = null;
+      state.learningID = null;
+    },
   },
 });
 

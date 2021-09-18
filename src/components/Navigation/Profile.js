@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import AuthContext from "../../store/authContext";
+import { vocabsActions } from "../../store/vocabs-slice";
+import { learningActions } from "../../store/learning-slice";
 
 import classes from "./Profile.module.css";
 
@@ -9,6 +12,7 @@ const Profile = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const authContext = useContext(AuthContext);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);
@@ -16,6 +20,8 @@ const Profile = () => {
 
   const logoutHandler = () => {
     authContext.logout();
+    dispatch(vocabsActions.clear());
+    dispatch(learningActions.clear());
     history.push("/login");
   };
 
