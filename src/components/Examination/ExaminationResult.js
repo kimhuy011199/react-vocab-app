@@ -24,7 +24,11 @@ const ExaminationResult = (props) => {
             <h5 className={classes.title}>Các từ đã thuộc:</h5>
             <ul>
               {props.correct.map((item) => (
-                <ExaminationResultItem key={item.id} item={item} />
+                <ExaminationResultItem
+                  key={item.id}
+                  item={item}
+                  isMyVocabs={props.isMyVocabs}
+                />
               ))}
             </ul>
           </div>
@@ -32,7 +36,11 @@ const ExaminationResult = (props) => {
             <h5 className={classes.title}>Các từ chưa thuộc:</h5>
             <ul>
               {props.incorrect.map((item) => (
-                <ExaminationResultItem key={item.id} item={item} />
+                <ExaminationResultItem
+                  key={item.id}
+                  item={item}
+                  isMyVocabs={props.isMyVocabs}
+                />
               ))}
             </ul>
           </div>

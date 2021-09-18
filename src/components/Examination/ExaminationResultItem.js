@@ -31,10 +31,12 @@ const ExaminationResultItem = (props) => {
 
   return (
     <li className={classes.item}>
-      <button onClick={toggleVocab} className={classes["heart-button"]}>
-        {isActive && <HeartIconSolid />}
-        {!isActive && <HeartIcon />}
-      </button>
+      {!props.isMyVocabs && (
+        <button onClick={toggleVocab} className={classes["heart-button"]}>
+          {isActive && <HeartIconSolid />}
+          {!isActive && <HeartIcon />}
+        </button>
+      )}
       <p>{props.item.word}</p>
     </li>
   );

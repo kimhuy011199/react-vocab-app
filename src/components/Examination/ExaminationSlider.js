@@ -52,6 +52,7 @@ const ExaminationSlider = (props) => {
   if (correct.length + incorrect.length === questions.length) {
     return (
       <ExamResult
+        isMyVocabs={props.isMyVocabs}
         incorrect={incorrect}
         correct={correct}
         length={questions.length}

@@ -5,6 +5,7 @@ import VocabsList from "../../components/Vocabs/VocabsList";
 import Error from "../../components/UI/Error/Error";
 import LearningError from "../../components/Learning/LearningError";
 import Heading from "../../components/UI/Heading/Heading";
+import MyVocabsNavigation from "../../components/Navigation/MyVocabsNavigation";
 
 const MyVocabs = () => {
   const vocabs = useSelector((state) => state.vocabs.vocabularies);
@@ -26,6 +27,7 @@ const MyVocabs = () => {
     <>
       <Heading heading="Các từ vựng đã ghim" />
       <VocabsList vocabsList={vocabs} />
+      <MyVocabsNavigation />
     </>
   );
 };
