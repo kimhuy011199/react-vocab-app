@@ -11,21 +11,21 @@ const features = [
     key: 1,
     name: "Flashcard 2 mặt",
     description:
-      "Bạn sẽ được học từ vựng bằng flashcard 2 mặt, gồm định nghĩa, hình ảnh minh hoạ và cách phát âm",
+      "Bạn sẽ được học từ vựng với flashcard 2 mặt, gồm định nghĩa, hình ảnh minh hoạ và cách phát âm",
     icon: <FlashcardIcon />,
   },
   {
     key: 2,
     name: "Ghim từ muốn học",
     description:
-      "Bạn có thể sử dụng chức năng ghim từ để ghim những từ bạn muốn học một cách riêng lẻ",
+      "Bạn có thể sử dụng chức năng ghim từ của VOCAB để tạo ra bộ từ vựng mà bạn muốn học",
     icon: <LearningIcon />,
   },
   {
     key: 3,
     name: "Kiểm tra từ vựng",
     description:
-      "Bạn có thể kiểm tra vốn từ vựng của mình bằng chức năng Examination của hệ thống",
+      "Bạn có thể kiểm tra từ vựng với bộ từ vựng của VOCAB hoặc bộ từ vựng mà bạn đã ghim",
     icon: <ExaminationIcon />,
   },
 ];
