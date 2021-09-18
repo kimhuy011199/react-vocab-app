@@ -53,7 +53,6 @@ function App() {
   // Update MyLearning when categories change
   useEffect(() => {
     if (authCtx.isLoggedIn && learningID) {
-      console.log("ok");
       dispatch(
         updateLearning(
           {
