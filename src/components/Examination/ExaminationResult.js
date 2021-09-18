@@ -1,6 +1,8 @@
 import React from "react";
-import Modal from "../UI/Modal/Modal";
 import { useHistory } from "react-router-dom";
+
+import Modal from "../UI/Modal/Modal";
+
 import classes from "./ExaminationResult.module.css";
 
 const ExaminationResult = (props) => {

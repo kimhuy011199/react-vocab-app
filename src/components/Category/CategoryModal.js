@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import Modal from "../UI/Modal/Modal";
+
 import classes from "./CategoryModal.module.css";
 
 const CategoryModal = (props) => {

@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+
 import { login } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import AuthContext from "../../store/authContext";
+
 import classes from "./AuthForm.module.css";
 
 const LoginForm = () => {

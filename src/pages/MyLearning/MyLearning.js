@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import CategoryList from "../../components/Category/CategoryList";
 import Error from "../../components/UI/Error/Error";
 import LearningError from "../../components/Learning/LearningError";
 import Heading from "../../components/UI/Heading/Heading";
-import { useSelector } from "react-redux";
 
 const MyLearning = () => {
   const categories = useSelector((state) => state.learning.categories);

@@ -1,5 +1,7 @@
 import React from "react";
+
 import CategoryItem from "./CategoryItem";
+
 import classes from "./CategoryList.module.css";
 
 const CategoryList = (props) => {

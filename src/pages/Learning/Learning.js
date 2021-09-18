@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { getSingleCategory } from "../../api/api";
-import useFetch from "../../hooks/useFetch";
-import LearningSlider from "../../components/Learning/LearningSlider";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import LearningSlider from "../../components/Learning/LearningSlider";
 import Loading from "../../components/UI/Loading/Loading";
 import Error from "../../components/UI/Error/Error";
-import { useDispatch } from "react-redux";
+
+import useFetch from "../../hooks/useFetch";
+import { getSingleCategory } from "../../api/api";
 import { learningActions } from "../../store/learning-slice";
 
 const Learning = () => {

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { getSingleCategory } from "../../api/api";
-import useFetch from "../../hooks/useFetch";
-import ExaminationSlider from "../../components/Examination/ExaminationSlider";
 import { useParams } from "react-router-dom";
+
+import ExaminationSlider from "../../components/Examination/ExaminationSlider";
 import Loading from "../../components/UI/Loading/Loading";
 import Error from "../../components/UI/Error/Error";
+
+import useFetch from "../../hooks/useFetch";
+import { getSingleCategory } from "../../api/api";
 
 const Examination = () => {
   const { data, error, status, requestFunction } = useFetch(

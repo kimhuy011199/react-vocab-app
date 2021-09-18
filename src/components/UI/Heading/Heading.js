@@ -1,4 +1,5 @@
 import React from "react";
+
 import classes from "./Heading.module.css";
 
 const Heading = (props) => {

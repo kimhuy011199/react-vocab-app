@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+
 import { register, createMyLearning, createMyVocabs } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
+
 import classes from "./AuthForm.module.css";
 
 const RegisterForm = () => {

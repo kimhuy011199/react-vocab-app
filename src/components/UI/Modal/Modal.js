@@ -1,10 +1,11 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
+
 import CloseIcon from "../../Icons/CloseIcon";
 
 import classes from "./Modal.module.css";
 
-const Backdrop = (props) => {
+const Backdrop = () => {
   return <div className={classes.backdrop} />;
 };
 

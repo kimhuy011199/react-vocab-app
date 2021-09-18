@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import LearningResult from "./LearningResult";
 import LearningSlide from "./LearningSlide";
 
@@ -22,6 +23,7 @@ const LearningSlider = (props) => {
     setInputStyle({});
   };
 
+  // Go to next slide
   const nextSlideHandler = () => {
     if (currentSlide === props.data.length - 1) {
       toggleModal();
@@ -34,6 +36,7 @@ const LearningSlider = (props) => {
     resetStyle();
   };
 
+  // Go to previous slide
   const prevSlideHandler = () => {
     if (currentSlide === 0) {
       return;
@@ -45,6 +48,7 @@ const LearningSlider = (props) => {
     resetStyle();
   };
 
+  // Flip flashcard
   const flashcardChangeHandler = () => {
     if (flipStyle) {
       setFlipStyle(null);
@@ -57,6 +61,9 @@ const LearningSlider = (props) => {
     setInput(event.target.value);
   };
 
+  // Handle user input:
+  // True -> Flip flashcard
+  // False -> Make border input red
   const submitHandler = (event) => {
     event.preventDefault();
     if (props.data[currentSlide].word === input) {

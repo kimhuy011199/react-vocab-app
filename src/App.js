@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import Layout from "./components/Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
 import Categories from "./pages/Categories/Categories";
@@ -11,7 +13,7 @@ import Examination from "./pages/Examination/Examination";
 import NotFound from "./pages/NotFound/NotFound";
 import MyLearning from "./pages/MyLearning/MyLearning";
 import MyVocabs from "./pages/MyVocabs/MyVocabs";
-import { useDispatch, useSelector } from "react-redux";
+
 import { updateVocabs } from "./store/vocabs-action";
 import { updateLearning } from "./store/learning-action";
 import { fetchVocabs } from "./store/vocabs-action";
@@ -25,6 +27,7 @@ function App() {
   const categories = useSelector((state) => state.learning.categories);
   const learningID = useSelector((state) => state.learning.learningID);
 
+  // Fetch MyVocabs and MyLearning when user login
   useEffect(() => {
     if (authCtx.isLoggedIn) {
       dispatch(fetchVocabs(authCtx.id));
@@ -32,6 +35,7 @@ function App() {
     }
   }, [authCtx.isLoggedIn, authCtx.id, dispatch]);
 
+  // Update MyVocabs when vocabularies change
   useEffect(() => {
     if (authCtx.isLoggedIn && vocabsID) {
       dispatch(
@@ -46,6 +50,7 @@ function App() {
     }
   }, [authCtx.isLoggedIn, authCtx.id, dispatch, vocabularies, vocabsID]);
 
+  // Update MyLearning when categories change
   useEffect(() => {
     if (authCtx.isLoggedIn && learningID) {
       console.log("ok");

@@ -1,7 +1,9 @@
 import React from "react";
+
 import Features from "./Features";
-import classes from "./Home.module.css";
 import Logo from "../../assets/favicon.svg";
+
+import classes from "./Home.module.css";
 
 const Home = () => {
   return (

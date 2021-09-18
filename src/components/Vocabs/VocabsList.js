@@ -1,5 +1,7 @@
 import React from "react";
+
 import VocabItem from "./VocabItem";
+
 import classes from "./VocabsList.module.css";
 
 const VocabsList = (props) => {

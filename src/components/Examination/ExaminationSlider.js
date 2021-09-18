@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import ExamSlide from "./ExaminationSlide";
 import ExamResult from "./ExaminationResult";
+
 import classes from "./ExaminationSlider.module.css";
 
 const shuffle = (data) => {
@@ -27,6 +29,7 @@ const ExaminationSlider = (props) => {
     event.preventDefault();
     setInput("");
 
+    // Handle correct and incorrect answer
     if (questions[currentSlide].word === input) {
       setCorrect((prev) => [...prev, input]);
     } else {
@@ -37,12 +40,14 @@ const ExaminationSlider = (props) => {
       return;
     }
 
+    // Go to next question
     setCurrentSlide((prevSlide) => prevSlide + 1);
     setTranslateXStyle({
       transform: `translateX(${(currentSlide + 1) * -100}%)`,
     });
   };
 
+  // Show result when finish examination
   if (correct.length + incorrect.length === questions.length) {
     return (
       <ExamResult

@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import getStrapiMedia from "../../api/media";
-import classes from "./LearningSlide.module.css";
+import { useDispatch, useSelector } from "react-redux";
+
 import SliderIcon from "../Icons/SliderIcon";
 import HeartIcon from "../Icons/HeartIcon";
 import HeartIconSolid from "../Icons/HeartIconSolid";
 import AudioIcon from "../Icons/AudioIcon";
-import { useDispatch, useSelector } from "react-redux";
+
 import { vocabsActions } from "../../store/vocabs-slice";
+import getStrapiMedia from "../../api/media";
+
+import classes from "./LearningSlide.module.css";
 
 const LearningSlide = (props) => {
-  const imgUrl = getStrapiMedia(props.item.image.url);
-  const audio = new Audio(getStrapiMedia(props.item.audio.url));
+  const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
   const vocabularies = useSelector((state) => state.vocabs.vocabularies);
-  const [isActive, setIsActive] = useState(false);
+
+  const audio = new Audio(getStrapiMedia(props.item.audio.url));
+  const imgUrl = getStrapiMedia(props.item.image.url);
 
   const playAudioHandler = () => {
     audio.play();
@@ -28,6 +32,7 @@ const LearningSlide = (props) => {
     setIsActive((prevState) => !prevState);
   };
 
+  // Style heart icon
   useEffect(() => {
     if (vocabularies.some((item) => item.id === props.item.id)) {
       setIsActive(true);

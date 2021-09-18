@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import classes from "./Profile.module.css";
+import { Link, useHistory } from "react-router-dom";
+
 import AuthContext from "../../store/authContext";
-import { useHistory } from "react-router-dom";
+
+import classes from "./Profile.module.css";
 
 const Profile = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const authContext = useContext(AuthContext);
   const history = useHistory();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prevState) => !prevState);

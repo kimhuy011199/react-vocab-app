@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { getAllCategories } from "../../api/api";
-import useFetch from "../../hooks/useFetch";
+
 import CategoryList from "../../components/Category/CategoryList";
 import Loading from "../../components/UI/Loading/Loading";
 import Error from "../../components/UI/Error/Error";
 import Heading from "../../components/UI/Heading/Heading";
+
+import useFetch from "../../hooks/useFetch";
+import { getAllCategories } from "../../api/api";
 
 const Categories = () => {
   const { data, error, status, requestFunction } = useFetch(

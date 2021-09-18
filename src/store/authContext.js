@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const AuthContext = React.createContext({
   token: null,
   isLoggedIn: false,
-  email: "",
+  email: null,
   id: null,
   login: (token, email) => {},
   logout: () => {},
@@ -13,13 +13,13 @@ export default AuthContext;
 
 export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(null);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
   const [id, setId] = useState(null);
   const isLoggedIn = !!token;
 
   const logoutHandler = () => {
     setToken(null);
-    setEmail("");
+    setEmail(null);
     setId(null);
   };
 

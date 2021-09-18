@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import classes from "./CategoryItem.module.css";
+
 import getStrapiMedia from "../../api/media";
+
 import CategoryModal from "./CategoryModal";
 
+import classes from "./CategoryItem.module.css";
+
 const CategoryItem = (props) => {
-  const imgUrl = getStrapiMedia(props.item.image.url);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const imgUrl = getStrapiMedia(props.item.image.url);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);

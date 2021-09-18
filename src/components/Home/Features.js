@@ -1,8 +1,10 @@
 import React from "react";
-import classes from "./Features.module.css";
+
 import FlashcardIcon from "../Icons/FlashcardIcon";
 import ExaminationIcon from "../Icons/ExaminationIcon";
 import LearningIcon from "../Icons/LearningIcon";
+
+import classes from "./Features.module.css";
 
 const features = [
   {
