@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import getStrapiMedia from "../../api/media";
 import classes from "./LearningSlide.module.css";
 import SliderIcon from "../Icons/SliderIcon";
 import HeartIcon from "../Icons/HeartIcon";
+import HeartIconSolid from "../Icons/HeartIconSolid";
 import AudioIcon from "../Icons/AudioIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { vocabsActions } from "../../store/vocabs-slice";
 
 const LearningSlide = (props) => {
   const imgUrl = getStrapiMedia(props.item.image.url);
   const audio = new Audio(getStrapiMedia(props.item.audio.url));
+  const dispatch = useDispatch();
+  const vocabularies = useSelector((state) => state.vocabs.vocabularies);
+  const [isActive, setIsActive] = useState(false);
 
   const playAudioHandler = () => {
     audio.play();
   };
+
+  const toggleItemHandler = () => {
+    if (isActive) {
+      dispatch(vocabsActions.removeItem(props.item.id));
+    } else {
+      dispatch(vocabsActions.addItem(props.item));
+    }
+    setIsActive((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    if (vocabularies.some((item) => item.id === props.item.id)) {
+      setIsActive(true);
+    }
+  }, [vocabularies, props.item.id]);
 
   return (
     <div className={classes.card} style={props.translateXStyle}>
@@ -20,9 +41,6 @@ const LearningSlide = (props) => {
         onClick={props.onFlashcardChange}
       >
         <SliderIcon />
-      </button>
-      <button className={classes["heart-button"]}>
-        <HeartIcon />
       </button>
       <div className={classes.inner} style={props.flipStyle}>
         <div className={classes.front}>
@@ -53,6 +71,13 @@ const LearningSlide = (props) => {
               <p className={classes.sentence}>{props.item.sentence}</p>
             </div>
           </div>
+          <button
+            className={classes["heart-button"]}
+            onClick={toggleItemHandler}
+          >
+            {isActive && <HeartIconSolid />}
+            {!isActive && <HeartIcon />}
+          </button>
         </div>
       </div>
     </div>

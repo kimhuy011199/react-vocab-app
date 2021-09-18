@@ -11,14 +11,19 @@ import Examination from "./pages/Examination/Examination";
 import NotFound from "./pages/NotFound/NotFound";
 import MyLearning from "./pages/MyLearning/MyLearning";
 import MyVocabs from "./pages/MyVocabs/MyVocabs";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateVocabs } from "./store/vocabs-action";
+import { updateLearning } from "./store/learning-action";
 import { fetchVocabs } from "./store/vocabs-action";
 import { fetchLearning } from "./store/learning-action";
 
 function App() {
   const authCtx = useContext(AuthContext);
   const dispatch = useDispatch();
+  const vocabularies = useSelector((state) => state.vocabs.vocabularies);
+  const vocabsID = useSelector((state) => state.vocabs.vocabsID);
+  const categories = useSelector((state) => state.learning.categories);
+  const learningID = useSelector((state) => state.learning.learningID);
 
   useEffect(() => {
     if (authCtx.isLoggedIn) {
@@ -26,6 +31,35 @@ function App() {
       dispatch(fetchLearning(authCtx.id));
     }
   }, [authCtx.isLoggedIn, authCtx.id, dispatch]);
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn && vocabsID) {
+      dispatch(
+        updateVocabs(
+          {
+            userID: authCtx.id,
+            vocabularies: vocabularies,
+          },
+          vocabsID
+        )
+      );
+    }
+  }, [authCtx.isLoggedIn, authCtx.id, dispatch, vocabularies, vocabsID]);
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn && learningID) {
+      console.log("ok");
+      dispatch(
+        updateLearning(
+          {
+            userID: authCtx.id,
+            categories: categories,
+          },
+          learningID
+        )
+      );
+    }
+  }, [authCtx.isLoggedIn, authCtx.id, dispatch, categories, learningID]);
 
   return (
     <Layout>

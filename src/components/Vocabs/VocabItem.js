@@ -2,16 +2,19 @@ import React from "react";
 import classes from "./VocabItem.module.css";
 import getStrapiMedia from "../../api/media";
 import CloseIcon from "../Icons/CloseIcon";
+import { useDispatch } from "react-redux";
+import { vocabsActions } from "../../store/vocabs-slice";
 
 const VocabItem = (props) => {
   const audio = new Audio(getStrapiMedia(props.item.audio.url));
+  const dispatch = useDispatch();
 
   const playAudioHandler = () => {
     audio.play();
   };
 
   const removeItemHandler = () => {
-    console.log(props.item.id);
+    dispatch(vocabsActions.removeItem(props.item.id));
   };
 
   return (
