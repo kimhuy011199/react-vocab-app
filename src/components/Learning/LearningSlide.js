@@ -76,13 +76,15 @@ const LearningSlide = (props) => {
               <p className={classes.sentence}>{props.item.sentence}</p>
             </div>
           </div>
-          <button
-            className={classes["heart-button"]}
-            onClick={toggleItemHandler}
-          >
-            {isActive && <HeartIconSolid />}
-            {!isActive && <HeartIcon />}
-          </button>
+          {props.isMyVocabs ? null : (
+            <button
+              className={classes["heart-button"]}
+              onClick={toggleItemHandler}
+            >
+              {isActive && <HeartIconSolid />}
+              {!isActive && <HeartIcon />}
+            </button>
+          )}
         </div>
       </div>
     </div>

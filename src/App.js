@@ -13,6 +13,7 @@ import Examination from "./pages/Examination/Examination";
 import NotFound from "./pages/NotFound/NotFound";
 import MyLearning from "./pages/MyLearning/MyLearning";
 import MyVocabs from "./pages/MyVocabs/MyVocabs";
+import LearningMyVocabs from "./pages/LearningMyVocabs/LearningMyVocabs";
 
 import { updateVocabs } from "./store/vocabs-action";
 import { updateLearning } from "./store/learning-action";
@@ -92,9 +93,13 @@ function App() {
           {!authCtx.isLoggedIn && <Redirect to="/" />}
           {authCtx.isLoggedIn && <MyLearning />}
         </Route>
-        <Route path="/myvocabs">
+        <Route path="/myvocabs" exact>
           {!authCtx.isLoggedIn && <Redirect to="/" />}
           {authCtx.isLoggedIn && <MyVocabs />}
+        </Route>
+        <Route path="/myvocabs/learning" exact>
+          {!authCtx.isLoggedIn && <Redirect to="/" />}
+          {authCtx.isLoggedIn && <LearningMyVocabs />}
         </Route>
         <Route path="*">
           <NotFound />

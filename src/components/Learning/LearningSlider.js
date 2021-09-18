@@ -26,6 +26,9 @@ const LearningSlider = (props) => {
   // Go to next slide
   const nextSlideHandler = () => {
     if (currentSlide === props.data.length - 1) {
+      if (props.isMyVocabs) {
+        return;
+      }
       toggleModal();
       return;
     }
@@ -85,6 +88,7 @@ const LearningSlider = (props) => {
         {props.data.map((item) => (
           <LearningSlide
             key={item.id}
+            isMyVocabs={props.isMyVocabs}
             onFlashcardChange={flashcardChangeHandler}
             translateXStyle={translateXStyle}
             flipStyle={flipStyle}

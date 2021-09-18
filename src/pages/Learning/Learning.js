@@ -44,6 +44,7 @@ const Learning = () => {
       data={data[0].vocabularies}
       name={data[0].name}
       slug={data[0].slug}
+      isMyVocabs={false}
     />
   );
 };
