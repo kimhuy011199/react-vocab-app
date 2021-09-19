@@ -1,7 +1,7 @@
-const API_URL = "http://localhost:1337";
-
 export function getURL(path) {
-  return `${API_URL || "http://localhost:1337"}${path}`;
+  return `${
+    process.env.MY_HEROKU_URL || "https://vocab-strapi.herokuapp.com"
+  }${path}`;
 }
 
 const fetchAPI = async (path, method = "GET", dataObject = null) => {
