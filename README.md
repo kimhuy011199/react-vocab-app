@@ -1,7 +1,7 @@
 # REACT VOCAB APP
 
 Ứng dụng học từ vựng tiếng Anh đơn giản bằng flashcard.
-Truy cập ứng dụng tại [VOCAB](https://pages.github.com/).
+Truy cập ứng dụng tại [VOCAB](https://react-vocab-app.netlify.app/).
 
 ## Công nghệ
 
