@@ -50,3 +50,18 @@
 .cyan:active {
   background-color: var(--cyan-600);
 }
+
+.logout {
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: all 0.3s;
+}
+
+.logout:hover {
+  color: var(--blue-500);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}

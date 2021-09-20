@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
@@ -6,17 +6,12 @@ import AuthContext from "../../store/authContext";
 import { vocabsActions } from "../../store/vocabs-slice";
 import { learningActions } from "../../store/learning-slice";
 
-import classes from "./Profile.module.css";
+import classes from "./Navigation.module.css";
 
 const Profile = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const authContext = useContext(AuthContext);
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => !prevState);
-  };
 
   const logoutHandler = () => {
     authContext.logout();
@@ -26,32 +21,25 @@ const Profile = () => {
   };
 
   return (
-    <div
-      className={classes.container}
-      onMouseEnter={toggleDropdown}
-      onMouseLeave={toggleDropdown}
-    >
-      <div className={classes.email}>Xin chào, {authContext.email}</div>
-      {isDropdownOpen && (
-        <div className={classes.dropdown}>
-          <ul>
-            <li>
-              <Link to="/myvocabs">Từ vựng của bạn</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to="/mylearning">Chủ đề đang học</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <button onClick={logoutHandler}>Đăng xuất</button>
-            </li>
-          </ul>
-        </div>
-      )}
-    </div>
+    <nav className={classes.nav}>
+      <ul className={classes.profile}>
+        <li>
+          <Link className={classes.full} to="/myvocabs">
+            TỪ VỰNG CỦA BẠN
+          </Link>
+        </li>
+        <li>
+          <Link className={classes.cyan} to="/mylearning">
+            CHỦ ĐỀ CỦA BẠN
+          </Link>
+        </li>
+        <li>
+          <button className={classes.logout} onClick={logoutHandler}>
+            ĐĂNG XUẤT
+          </button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

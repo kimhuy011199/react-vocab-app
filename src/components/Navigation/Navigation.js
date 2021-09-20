@@ -20,8 +20,8 @@ const Header = () => {
             <img src={logo} alt="VOCAB Logo" />
           </Link>
         </div>
-        <nav className={classes.nav}>
-          {!authContext.isLoggedIn && (
+        {!authContext.isLoggedIn && (
+          <nav className={classes.nav}>
             <ul>
               {location.pathname !== "/login" && (
                 <li>
@@ -38,9 +38,9 @@ const Header = () => {
                 </li>
               )}
             </ul>
-          )}
-          {authContext.isLoggedIn && <Profile />}
-        </nav>
+          </nav>
+        )}
+        {authContext.isLoggedIn && <Profile />}
       </div>
     </div>
   );
