@@ -1,6 +1,6 @@
 export function getURL(path) {
   return `${
-    process.env.MY_HEROKU_URL || "https://vocab-strapi.herokuapp.com"
+    process.env.MY_HEROKU_URL || "https://strapi-be-app.herokuapp.com/"
   }${path}`;
 }
 
