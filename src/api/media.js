@@ -10,7 +10,7 @@ const getStrapiMedia = (url) => {
 
   // Otherwise prepend the URL path with the Strapi URL
   return `${
-    process.env.MY_HEROKU_URL || "https://strapi-be-app.herokuapp.com/"
+    process.env.MY_HEROKU_URL || "https://strapi-be-app.herokuapp.com"
   }${url}`;
 };
 
